@@ -147,7 +147,87 @@ router.route('/').post(async(req, res) => {
             break
 
         // TODO: Complete the rest of the endpoints
+           
+        case 'shipment_cancelled':
 
+             let filter7 = { shipmentId: req.body.shipmentId }
+             let update7 = { status: req.body.attributes.status }
+
+             let shipment7 = await Shipment.findOneAndUpdate(filter7, update7, {new: true})
+
+             if(shipment7) {
+                return res.json({message: 'Success', shipment7})
+             } else {
+                return res.status(511).json({message: 'Failure', reason: 'Shipment not found.'}) 
+             }
+
+             // TODO: Create notification
+
+             break
+         
+        case 'shipment_form_failed':
+
+             let filter8 = { shipmentId: req.body.shipmentId }
+             let update8 = { status: req.body.attributes.status }
+
+             let shipment8 = await Shipment.findOneAndUpdate(filter8, update8, {new: true})
+
+             if(shipment8) {
+                return res.json({message: 'Success', shipment8})
+             } else {
+                return res.status(511).json({message: 'Failure', reason: 'Shipment not found.'}) 
+             }
+
+             // TODO: Create notification
+
+             break
+        
+        case 'return_created':
+             let filter9 = { shipmentId: req.body.shipmentId }
+             let update9 = { status: req.body.attributes.status }
+
+             let shipment9 = await Shipment.findOneAndUpdate(filter9, update9, {new: true})
+
+             if(shipment9) {
+                return res.json({message: 'Success', shipment9})
+             } else {
+                return res.status(511).json({message: 'Failure', reason: 'Shipment not found.'}) 
+             }
+
+             // TODO: Create notification
+             break;
+ 
+        case 'return_completed':
+             
+             let filter10 = { shipmentId: req.body.shipmentId }
+             let update10 = { status: req.body.attributes.status }
+
+             let shipment10 = await Shipment.findOneAndUpdate(filter10, update10, {new: true})
+
+             if(shipment10) {
+                return res.json({message: 'Success', shipment10})
+             } else {
+                return res.status(511).json({message: 'Failure', reason: 'Shipment not found.'}) 
+             }
+
+             // TODO: Create notification
+             break;
+             
+        case 'return_cancelled':
+             let filter11 = { shipmentId: req.body.shipmentId }
+             let update11 = { status: req.body.attributes.status }
+
+             let shipment11 = await Shipment.findOneAndUpdate(filter11, update11, {new: true})
+
+             if(shipment11) {
+                return res.json({message: 'Success', shipment11})
+             } else {
+                return res.status(511).json({message: 'Failure', reason: 'Shipment not found.'}) 
+             }
+
+             // TODO: Create notification
+             break;
+             
         default:
             return res.status(400).json({status: 'Failure', reason: 'Bad request'})
     }
